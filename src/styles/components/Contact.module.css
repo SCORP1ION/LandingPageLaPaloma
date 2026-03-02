@@ -1,0 +1,63 @@
+.container{
+  background: rgba(255, 166, 0, 0.12);
+  border-radius: 12px;
+  padding: 16px;
+  width: min(420px, 100%);
+  justify-self: center;
+  margin-top: 30px;
+}
+
+.title{
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.list{
+  display: grid;
+  gap: 14px;
+}
+
+.socialContact{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iconWrap{
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: #25d366; /* puedes cambiar por item si quieres */
+  color: white;
+  flex: 0 0 42px;
+}
+
+/* Si tus iconos no heredan color, puedes forzarlo así */
+.iconWrap :global(svg){
+  width: 20px;
+  height: 20px;
+}
+
+.text{
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.social{
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.contacto{
+  margin: 2px 0 0 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #111827;
+}

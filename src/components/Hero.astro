@@ -1,0 +1,45 @@
+---
+import Arrow from "./icons/arrow.astro";
+import styles from "../styles/components/Hero.module.css";
+import Start from "../components/icons/start.astro"
+import Money from "../components/icons/money.astro"
+import Truck from "../components/icons/truck.astro"
+---
+
+<section class={styles.container}>
+    <div>
+        <h1 class={styles.subTitle}>
+            Palomitas para mayore: <strong>más sabor,</strong>
+            más margen.
+        </h1>
+
+        <a class={styles.description}>Variedad premium y precios por volumen diseñados especialmente para
+            impulsar tu negocio. Entregas rapidas en todo el país.</a>
+
+        <div class={styles.botones}>
+            <a class={styles.pedir} href="#contacto">Pedir cotizacion <Arrow /></a>
+            <a class={styles.watch} href="#sabores">Ver sabores</a>
+        </div>
+
+        <div class={styles.gridContainer}>
+            <div class={styles.card}>
+                <Money/>
+                <p>Precio por volumen</p>
+                <a>Mejores márgenes</a>
+            </div>
+            <div class={styles.card}>
+                <Start/>
+                <p>Sabores premium</p>
+                <a>Calidad gourmet</a>
+            </div>
+            <div class={styles.card}>
+                <Truck/>
+                <p>Ideal para eventos</p>
+                <a>Entrega inmediata</a>
+            </div>
+        </div>
+    </div>
+    <div class={styles.imagen}>
+        <img src="/img/popcorn.webp" class={styles.popcorn} />
+    </div>
+</section>

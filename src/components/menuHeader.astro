@@ -1,0 +1,105 @@
+---
+import styles from "../styles/components/menuHeader.module.css";
+import Message from "./icons/message.astro";
+---
+
+<header class={styles.contenedor}>
+  <div class={styles.contentNavigation}>
+    <div class={styles.logo}>
+      <img src="/img/paloma.png" alt="Logo La Paloma" />
+      <span>La Paloma</span>
+    </div>
+
+    {/* Nav escritorio */}
+    <nav class={styles.navegation} aria-label="Navegación principal">
+      <a href="/">Inicio</a>
+      <a href="#sabores">Sabores</a>
+      <a href="#mayoreo">Mayoreo</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    {/* CTA escritorio */}
+    <a class={styles.boton} href="https://wa.me/5210000000000" target="_blank" rel="noreferrer">
+      <Message />
+      Cotizar por WhatsApp
+    </a>
+
+    {/* Botón hamburguesa (solo móvil/tablet) */}
+    <button
+      class={styles.burger}
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+      data-burger
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  {/* Overlay */}
+  <div class={styles.backdrop} data-backdrop></div>
+
+  {/* Menú móvil */}
+  <aside class={styles.mobileMenu} id="mobileMenu" data-menu aria-hidden="true">
+    <div class={styles.mobileHeader}>
+      <p class={styles.mobileTitle}>Menú</p>
+      <button class={styles.close} type="button" aria-label="Cerrar menú" data-close>✕</button>
+    </div>
+
+    <nav class={styles.mobileNav} aria-label="Navegación móvil">
+      <a href="/" data-link>Inicio</a>
+      <a href="#sabores" data-link>Sabores</a>
+      <a href="#mayoreo" data-link>Mayoreo</a>
+      <a href="#testimonios" data-link>Testimonios</a>
+      <a href="#faq" data-link>FAQ</a>
+      <a href="#contacto" data-link>Contacto</a>
+    </nav>
+
+    <a class={styles.mobileCta} href="https://wa.me/5210000000000" target="_blank" rel="noreferrer">
+      <Message />
+      Cotizar por WhatsApp
+    </a>
+  </aside>
+</header>
+
+<script is:inline>
+  const burger = document.querySelector('[data-burger]');
+  const menu = document.querySelector('[data-menu]');
+  const backdrop = document.querySelector('[data-backdrop]');
+  const closeBtn = document.querySelector('[data-close]');
+  const links = document.querySelectorAll('[data-link]');
+
+  const openMenu = () => {
+    document.body.dataset.menuOpen = "true";
+    burger?.setAttribute("aria-expanded", "true");
+    menu?.setAttribute("aria-hidden", "false");
+  };
+
+  const closeMenu = () => {
+    document.body.dataset.menuOpen = "false";
+    burger?.setAttribute("aria-expanded", "false");
+    menu?.setAttribute("aria-hidden", "true");
+  };
+
+  burger?.addEventListener("click", () => {
+    const isOpen = document.body.dataset.menuOpen === "true";
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  closeBtn?.addEventListener("click", closeMenu);
+  backdrop?.addEventListener("click", closeMenu);
+
+  links.forEach((a) => a.addEventListener("click", closeMenu));
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  // Estado inicial por si acaso
+  document.body.dataset.menuOpen = "false";
+</script>

@@ -1,0 +1,45 @@
+---
+import Whatsapp from "./icons/whatsapp.astro";
+import Email from "./icons/email.astro";
+import Phone from "./icons/phone.astro";
+import styles from "../styles/components/Contact.module.css";
+
+const contacts = [
+    {
+        icon: Whatsapp,
+        social: "Whatsapp",
+        contacto: "+52 1234-5678",
+    },
+    {
+        icon: Phone,
+        social: "Llamada",
+        contacto: "+52 1234-5678",
+    },
+    {
+        icon: Email,
+        social: "Correo electronico",
+        contacto: "Ventas@LaPaloma.com",
+    },
+];
+---
+<section class={styles.container} id="contacto">
+  <h1 class={styles.title}>Contacto directo</h1>
+
+  <div class={styles.list}>
+    {contacts.map((contact) => {
+      const Icon = contact.icon;
+      return (
+        <div class={styles.socialContact}>
+          <div class={styles.iconWrap}>
+            <Icon />
+          </div>
+
+          <div class={styles.text}>
+            <span class={styles.social}>{contact.social}</span>
+            <p class={styles.contacto}>{contact.contacto}</p>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</section>

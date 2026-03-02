@@ -1,0 +1,47 @@
+.container{
+    margin-top: 4rem;
+    align-content: center;
+    text-align: center;
+}
+
+.container .descubre{
+   font-size: larger;
+   color: #6b7280;
+}
+
+.productImagen{
+    display: block;
+    margin: 0 auto;
+    padding: 1rem;
+    height: auto;
+    width: min(180px, 100%);
+    border-radius: 20px;
+}
+
+.gridCard{
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 0.9fr);
+    gap: 10px;
+}
+
+@media (max-width: 900px) {
+    .gridCard{
+        grid-template-columns: repeat(1, 0.9fr);
+        justify-content: center;
+    }
+}
+
+.card{
+    background: #f3f3f3;
+    border-radius: 10px;
+    padding-bottom: 1rem;
+}
+
+.card p{
+    font-size: 25px;
+}
+
+.card span{
+    color: #6b7280;
+}
