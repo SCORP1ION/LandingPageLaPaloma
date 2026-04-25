@@ -1,40 +1,48 @@
 ---
-
 import styles from "../styles/components/Products.module.css"
 const products = [
     {
-        nombre: "Palomitas con sal",
-        descripcion: "Las clasicas palomitas de maiz con sal natural",
+        nombre: "Palomitas con sal.",
+        descripcion: "Las clasicas palomitas de maiz con sal natural.",
         imagen: "/img/palomitasConSal.jpeg",
     },
     {
-        nombre: "Gelatina de agua",
-        descripcion: "Delisiosas gelatinas en base a agua, de sabor limon, fresa",
+        nombre: "Gelatina de agua.",
+        descripcion: "Delisiosas gelatinas en base a agua, de sabor limon, fresa.",
         imagen: "/img/gelatina.webp",
     },
     {
-        nombre: "Gelatina de mosaico",
-        descripcion: "Gelatina de leche con cubos de gelatinas de sabores",
+        nombre: "Gelatina de mosaico.",
+        descripcion: "Gelatina de leche con cubos de gelatinas de sabores.",
         imagen: "/img/mosaico.webp",
     },
+    {
+        nombre: "Palomitas con sabor a mantequilla.",
+        descripcion: "Deliciosas palomitas con sabor a mantequilla para eventos infantiles.",
+        imagen: "/img/palomitasConMantequilla.jpeg"
+    }
 ];
-
 ---
 
+
 <section class={styles.container} id="sabores">
-    <h1>Otros produtos a la venta</h1>
-    <span class={styles.descubre}>Descubre nuestra seleccion artesanal disañeda para cuativar a tus clientes</span>
-    <div class={styles.gridCard}>
-        {
-            products.map((product) => {
-                return (
-                    <div class={styles.card}>
-                        <img src={product.imagen} class={styles.productImagen}/>
-                        <p>{product.nombre}</p>
-                        <span>{product.descripcion}</span>
-                    </div>
-                );
-            })
-        }
-    </div>
+  <h2 class={styles.title}>Otros productos a la venta</h2>
+  <p class={styles.descubre}>
+    Descubre nuestra selección artesanal diseñada para cautivar a tus clientes
+  </p>
+
+  <div class={styles.gridCard}>
+    {
+      products.map((product) => (
+        <article class={styles.card}>
+          <img src={product.imagen} alt={product.nombre} />
+
+          <div class={styles.content}>
+            <h3>{product.nombre}</h3>
+            <p>{product.descripcion}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
 </section>
