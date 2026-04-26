@@ -142,7 +142,7 @@
 
 @media (max-width: 900px){
   .imagen{
-    order: 1; /* opcional: imagen arriba en mobile */
+    order: -1; /* opcional: imagen arriba en mobile */
     min-height: 240px;
   }
 }
